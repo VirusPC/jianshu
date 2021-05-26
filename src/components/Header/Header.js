@@ -1,17 +1,18 @@
 import { Component } from 'react';
-import {HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper} from "./style";
+import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper } from "./style";
+import { CSSTransition } from 'react-transition-group';
 
 class Header extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      focused: true,
+      focused: false,
     }
   }
 
   render() {
-    return(
+    return (
       <HeaderWrapper>
         <Logo></Logo>
         <Nav>
@@ -20,17 +21,25 @@ class Header extends Component {
           <NavItem className='right'>登录</NavItem>
           <NavItem className='right'>
             <i className="iconfont">&#xe636;</i>
-          </NavItem>
-          <SearchWrapper>
-            <NavSearch
-              className = {this.state.focused ? "focused" : ""}
-            ></NavSearch>
-            <i 
-            className={this.state.focused ? "focused iconfont" : "iconfont"}
-            >
-              &#xe623;
+          </NavItem>            <CSSTransition
+            in={this.state.focused}
+            timeout={5000}
+            classNames="slide">
+            <SearchWrapper>
+
+              <NavSearch
+                className={this.state.focused ? "focused" : ""}
+                onFocus={this.handleInputFocus}
+                onBlur={this.handleInputBlur}
+              ></NavSearch>
+              <i
+                className={this.state.focused ? "focused iconfont" : "iconfont"}
+              >
+                &#xe623;
             </i>
-          </SearchWrapper>
+
+            </SearchWrapper>
+          </CSSTransition>
         </Nav>
         <Addition>
           <Button className='writting'>
@@ -43,6 +52,19 @@ class Header extends Component {
       </HeaderWrapper>
     )
   }
+
+  handleInputFocus = () => {
+    this.setState({
+      focused: true
+    })
+  }
+
+  handleInputBlur = () => {
+    this.setState({
+      focused: false
+    })
+  }
+
 }
 
 export default Header;

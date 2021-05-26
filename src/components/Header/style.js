@@ -50,6 +50,18 @@ export const NavItem = styled.div`
 export const SearchWrapper = styled.div`
  float: left;
  position: relative;
+ .slide-enter{
+   transition: all .2s ease-out;
+ }
+ .slide-enter-active{
+    width: 240px
+ }
+ .slide-exit{
+   transition: all .2s ease-out;
+ }
+ .slide-exit-active{
+    width: 240px
+ }
  .iconfont{
    position: absolute;
    right: 5px;
@@ -70,7 +82,7 @@ export const NavSearch = styled.input.attrs({
 })`
   width: 160px;
   height: 38px;
-  padding: 0 30px 0 20px;
+  padding: 0 40px 0 20px;
   margin-top: 9px;
   margin-left: 20px;
   box-sizing: border-box
