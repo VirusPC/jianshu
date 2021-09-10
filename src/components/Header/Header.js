@@ -23,24 +23,24 @@ class Header extends Component {
           <NavItem className='right'>
             <i className="iconfont">&#xe636;</i>
           </NavItem>
-          <CSSTransition
-            in={this.state.focused}
-            timeout={5000}
-            classNames="slide">
-            <SearchWrapper>
+          <SearchWrapper>
 
+            <CSSTransition
+              in={this.state.focused}
+              timeout={5000}
+              classNames="slide">
               <NavSearch
                 className={this.state.focused ? "focused" : ""}
                 onFocus={this.handleInputFocus}
                 onBlur={this.handleInputBlur}
               ></NavSearch>
-              <i
-                className={this.state.focused ? "focused iconfont" : "iconfont"}
-              >
-                &#xe623;
-              </i>
-            </SearchWrapper>
-          </CSSTransition>
+            </CSSTransition>
+            <i
+              className={this.state.focused ? "focused iconfont" : "iconfont"}
+            >
+              &#xe623;
+            </i>
+          </SearchWrapper>
         </Nav>
         <Addition>
           <Button className='writting'>

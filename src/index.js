@@ -5,10 +5,13 @@ import {GlobalStyleIconfont} from './statics/iconfont/iconfont';
 import App from './App';
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <>
       <GlobalStyle BgColor={"lime"}/>
       <GlobalStyleIconfont/>
       <App/>
-  </React.StrictMode>,
+  </>
+  // </React.StrictMode>,
+  ,
   document.getElementById('root')
 );

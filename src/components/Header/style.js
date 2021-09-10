@@ -20,14 +20,14 @@ export const Logo = styled.a.attrs({
   left: 0;
   display: inline-block;
   width: 100px;
-  height: ${height+"px"};
+  height: ${height + "px"};
   background-image: url(${logoPic});
   background-size: contain;
 `
 
 export const Nav = styled.div`
   box-sizing: border-box;
-  padding: 0 220px 0 ${logoWidth+10}px;
+  padding: 0 220px 0 ${logoWidth + 10}px;
   left: 100px;
   width: 100%;
   height: 100%;
@@ -35,7 +35,7 @@ export const Nav = styled.div`
 `
 
 export const NavItem = styled.div`
-  line-height: ${height+"px"};
+  line-height: ${height + "px"};
   padding: 0 15px;
   font-size: 17px;
   color: #333;
@@ -85,37 +85,39 @@ export const NavSearch = styled.input.attrs({
   background: #eee;
   font-size: 14px;
   color: #666;
-  &::placeholder {
+  &::placeholder{
     color: #999;
   }
-  &.focused {
+  // &.focused{
+  //   width: 240px;
+  // }
+  &.slide-enter{
+    width: 160px;
+  }
+  &.slide-enter-active{
+    width: 240px;
+    transition: all .2s ease-out;
+  }
+  &.slide-enter-done{
     width: 240px;
   }
-  // &:active {
-  //   width: 200px;
-  // }
-  // &::after {
-  //   content: "\e623";
-  // }
-   .slide-enter{
-   transition: all .2s ease-out;
- }
- &.slide-enter-active{
-    width: 240px
- }
- &.slide-exit{
-   transition: all .2s ease-out;
- }
- &.slide-exit-active{
-    width: 240px
- }
-`
+  &.slide-exit{
+    width: 240px;
+  }
+  &.slide-exit-active {
+    width: 160px;
+    transition: all .2s ease-out;
+  }
+  &.slide-exit-done{
+    width: 160px;
+  }
+  `
 
 export const Addition = styled.div`
   position: absolute;
   right: 0;
   top: 0;
-  height: ${height+"px"};
+  height: ${height + "px"};
 `;
 
 export const Button = styled.button`
