@@ -1,9 +1,14 @@
 import styled from 'styled-components';
 import logoPic from '../../statics/logo.png'
 
+const height = 56;
+const minWidth = 870;
+const logoWidth = 100;
+
 export const HeaderWrapper = styled.div`
   position: relative;
-  height: 56px;
+  height: ${height + "px"};
+  min-width: ${minWidth + "px"};
   border-bottom: 1px solid #f0f0f0;
 `
 
@@ -15,14 +20,14 @@ export const Logo = styled.a.attrs({
   left: 0;
   display: inline-block;
   width: 100px;
-  height: 56px;
+  height: ${height+"px"};
   background-image: url(${logoPic});
   background-size: contain;
 `
 
 export const Nav = styled.div`
   box-sizing: border-box;
-  padding: 0 210px 0 110px;
+  padding: 0 220px 0 ${logoWidth+10}px;
   left: 100px;
   width: 100%;
   height: 100%;
@@ -30,7 +35,7 @@ export const Nav = styled.div`
 `
 
 export const NavItem = styled.div`
-  line-height: 56px;
+  line-height: ${height+"px"};
   padding: 0 15px;
   font-size: 17px;
   color: #333;
@@ -110,7 +115,7 @@ export const Addition = styled.div`
   position: absolute;
   right: 0;
   top: 0;
-  height: 56px;
+  height: ${height+"px"};
 `;
 
 export const Button = styled.button`

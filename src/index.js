@@ -8,7 +8,7 @@ ReactDOM.render(
   <React.StrictMode>
       <GlobalStyle BgColor={"lime"}/>
       <GlobalStyleIconfont/>
-      <App />
+      <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
