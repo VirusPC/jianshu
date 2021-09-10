@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper } from "./style";
 import { CSSTransition } from 'react-transition-group';
+import { connect } from 'react-redux'
 
 class Header extends Component {
 
@@ -21,7 +22,8 @@ class Header extends Component {
           <NavItem className='right'>登录</NavItem>
           <NavItem className='right'>
             <i className="iconfont">&#xe636;</i>
-          </NavItem>            <CSSTransition
+          </NavItem>
+          <CSSTransition
             in={this.state.focused}
             timeout={5000}
             classNames="slide">
@@ -36,8 +38,7 @@ class Header extends Component {
                 className={this.state.focused ? "focused iconfont" : "iconfont"}
               >
                 &#xe623;
-            </i>
-
+              </i>
             </SearchWrapper>
           </CSSTransition>
         </Nav>
@@ -67,4 +68,16 @@ class Header extends Component {
 
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

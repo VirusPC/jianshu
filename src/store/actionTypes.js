@@ -1,0 +1,1 @@
+export const FOCUS_ON_HEADER_ACTION = 'focus_on_header_action';
