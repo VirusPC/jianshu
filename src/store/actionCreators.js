@@ -1,6 +1,9 @@
-import {FOCUS_ON_HEADER_ACTION} from './actionTypes';
+import {Search_Focus_Action, Search_Blur_Action} from './actionTypes';
 
-export const getFocusOnHeaderAction = (value) => ({
-  type: FOCUS_ON_HEADER_ACTION,
-  value: value
+export const getSearchFocusAction = () => ({
+  type: Search_Focus_Action
+});
+
+export const getSearchBlurAction = () => ({
+  type: Search_Blur_Action
 });

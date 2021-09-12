@@ -2,17 +2,17 @@ import { Component } from 'react';
 import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper } from "./style";
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux'
+import { getSearchFocusAction, getSearchBlurAction} from '../../store/actionCreators'
 
 class Header extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      focused: false,
-    }
   }
 
   render() {
+    const {focused} = this.props;
+    const {handleInputFocus, handleInputBlur} = this.props;
     return (
       <HeaderWrapper>
         <Logo></Logo>
@@ -22,21 +22,21 @@ class Header extends Component {
           <NavItem className='right'>登录</NavItem>
           <NavItem className='right'>
             <i className="iconfont">&#xe636;</i>
-          </NavItem>
+          </NavItem> 
           <SearchWrapper>
 
             <CSSTransition
-              in={this.state.focused}
+              in={focused}
               timeout={5000}
               classNames="slide">
               <NavSearch
-                className={this.state.focused ? "focused" : ""}
-                onFocus={this.handleInputFocus}
-                onBlur={this.handleInputBlur}
+                className={focused ? "focused" : ""}
+                onFocus={handleInputFocus}
+                onBlur={handleInputBlur}
               ></NavSearch>
             </CSSTransition>
             <i
-              className={this.state.focused ? "focused iconfont" : "iconfont"}
+              className={focused ? "focused iconfont" : "iconfont"}
             >
               &#xe623;
             </i>
@@ -54,29 +54,22 @@ class Header extends Component {
     )
   }
 
-  handleInputFocus = () => {
-    this.setState({
-      focused: true
-    })
-  }
-
-  handleInputBlur = () => {
-    this.setState({
-      focused: false
-    })
-  }
-
 }
 
 const mapStateToProps = (state) => {
   return {
-
+    focused: state.focused
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
+    handleInputFocus(){
+      dispatch(getSearchFocusAction());
+    },
+    handleInputBlur(){
+      dispatch(getSearchBlurAction());
+    }
   }
 }
 

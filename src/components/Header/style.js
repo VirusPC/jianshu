@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import logoPic from '../../statics/logo.png'
 
 const height = 56;
-const minWidth = 870;
+const minWidth = 940;
 const logoWidth = 100;
 
 export const HeaderWrapper = styled.div`

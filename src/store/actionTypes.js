@@ -1,1 +1,2 @@
-export const FOCUS_ON_HEADER_ACTION = 'focus_on_header_action';
+export const Search_Focus_Action = 'search_focus';
+export const Search_Blur_Action = 'search_blure';
