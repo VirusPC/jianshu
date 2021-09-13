@@ -1,11 +1,12 @@
 import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper } from "./style";
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux'
-import { getSearchFocusAction, getSearchBlurAction } from '../../store/actionCreators'
+import { getSearchFocusAction, getSearchBlurAction } from './store/actionCreators'
 
 const Header = (props) => {
   const { focused } = props;
   const { handleInputFocus, handleInputBlur } = props;
+  console.log(focused);
   return (
     <HeaderWrapper>
       <Logo></Logo>
@@ -51,7 +52,7 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    focused: state.focused
+    focused: state.header.focused
   }
 }
 

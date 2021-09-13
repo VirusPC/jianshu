@@ -1,19 +1,6 @@
-import {Search_Focus_Action, Search_Blur_Action} from "./actionTypes"
+import { combineReducers } from 'redux';
+import headerReducer from '../components/Header/store/reducer';
 
-const defaultState = {};
-export default (state = defaultState, action) => {
-  if(action.type === Search_Focus_Action){
-    if(state.focused === false) {
-      const newState = JSON.parse(JSON.stringify(state));
-      newState.focused = true;
-      return newState;
-    }
-  } else if(action.type === Search_Blur_Action){
-    if(state.focused === true) {
-      const newState = JSON.parse(JSON.stringify(state));
-      newState.focused = false;
-      return newState;
-    }
-  }
-  return state;
-}
+export default combineReducers({
+  header: headerReducer
+})
