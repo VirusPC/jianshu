@@ -4,13 +4,15 @@ import logoPic from '../../statics/logo.png'
 const height = 56;
 const minWidth = 940;
 const logoWidth = 100;
+const minSearchWidth = 160;
+const maxSearchWidth = 240;
 
 export const HeaderWrapper = styled.div`
   position: relative;
   height: ${height + "px"};
   min-width: ${minWidth + "px"};
   border-bottom: 1px solid #f0f0f0;
-`
+`;
 
 export const Logo = styled.a.attrs({
   href: '/'
@@ -23,7 +25,7 @@ export const Logo = styled.a.attrs({
   height: ${height + "px"};
   background-image: url(${logoPic});
   background-size: contain;
-`
+`;
 
 export const Nav = styled.div`
   box-sizing: border-box;
@@ -32,7 +34,7 @@ export const Nav = styled.div`
   width: 100%;
   height: 100%;
   marign: 0 auto;
-`
+`;
 
 export const NavItem = styled.div`
   line-height: ${height + "px"};
@@ -49,7 +51,7 @@ export const NavItem = styled.div`
   &.active {
     color: #ea6f5a
   }
-`
+`;
 
 // line-height + text-align实现居中
 export const SearchWrapper = styled.div`
@@ -68,12 +70,12 @@ export const SearchWrapper = styled.div`
      color: #fff;
    }
  }
-`
+`;
 
 export const NavSearch = styled.input.attrs({
   placeholder: '搜索'
 })`
-  width: 160px;
+  width: ${minSearchWidth}px;
   height: 38px;
   padding: 0 40px 0 20px;
   margin-top: 9px;
@@ -88,30 +90,78 @@ export const NavSearch = styled.input.attrs({
   &::placeholder{
     color: #999;
   }
-  // &.focused{
-  //   width: 240px;
-  // }
   &.slide-enter{
-    width: 160px;
+    width: ${minSearchWidth}px;
   }
   &.slide-enter-active{
-    width: 240px;
+    width: ${maxSearchWidth}px;
     transition: all .2s ease-out;
   }
   &.slide-enter-done{
-    width: 240px;
+    width: ${maxSearchWidth}Px;
   }
   &.slide-exit{
-    width: 240px;
+    width: ${maxSearchWidth}px;
   }
   &.slide-exit-active {
-    width: 160px;
+    width: ${minSearchWidth}px;
     transition: all .2s ease-out;
   }
   &.slide-exit-done{
-    width: 160px;
+    width: ${minSearchWidth}px;
   }
-  `
+`;
+export const SearchInfo = styled.div`
+  position: absolute;
+  left: 9;
+  top: ${height}px;
+  width: ${maxSearchWidth}px;
+  padding: 10px 20px;
+  margin-left: 20px;
+  background: white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+  display: none;
+
+  &.focused{
+    display: block;
+  }
+`;
+
+export const SearchInfoTitle = styled.div`
+  margin-top: 5px;
+  margin-bottom: 15px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #969696;
+`;
+
+export const SearchInfoSwitch = styled.span`
+  float: right;
+  font-size: 13px;
+`;
+
+export const SearchInfoItemList = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+`
+
+export const SearchInfoItem = styled.a`
+  line-height: 20px;
+  padding: 0 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  color: #787878
+`
+
 
 export const Addition = styled.div`
   position: absolute;
