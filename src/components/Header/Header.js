@@ -1,8 +1,10 @@
-import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, 
-  SearchWrapper, SearchInfo, SearchInfoTitle, SearchInfoSwitch, SearchInfoItemList, SearchInfoItem } from "./style";
+import {
+  HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper
+} from "./style";
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux'
 import { getSearchFocusAction, getSearchBlurAction } from './store/actionCreators'
+import SearchInfo from './SearchInfo/SearchInfo'
 
 const Header = (props) => {
   const { focused } = props;
@@ -34,22 +36,7 @@ const Header = (props) => {
           >
             &#xe623;
           </i>
-          <SearchInfo className={focused ? "focused" : ""}>
-            <SearchInfoTitle>
-              热门搜索
-              <SearchInfoSwitch>换一批</SearchInfoSwitch>
-            </SearchInfoTitle>
-            <SearchInfoItemList>
-              <SearchInfoItem>教育</SearchInfoItem>
-              <SearchInfoItem>简书</SearchInfoItem>
-              <SearchInfoItem>生活</SearchInfoItem>
-              <SearchInfoItem>投稿</SearchInfoItem>
-              <SearchInfoItem>教育</SearchInfoItem>
-              <SearchInfoItem>简书</SearchInfoItem>
-              <SearchInfoItem>生活</SearchInfoItem>
-              <SearchInfoItem>投稿</SearchInfoItem>
-            </SearchInfoItemList>
-          </SearchInfo>
+          {focused? <SearchInfo></SearchInfo> : null}
         </SearchWrapper>
       </Nav>
       <Addition>

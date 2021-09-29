@@ -120,11 +120,6 @@ export const SearchInfo = styled.div`
   margin-left: 20px;
   background: white;
   box-shadow: 0 0 8px rgba(0, 0, 0, .2);
-  display: none;
-
-  &.focused{
-    display: block;
-  }
 `;
 
 export const SearchInfoTitle = styled.div`
